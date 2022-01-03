@@ -1,0 +1,22 @@
+{
+    "name": "ozzy/router",
+    "description": "Um simples roteador",
+    "version": "0.1",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rafael Arend",
+            "email": "rafinhaarend123@hotmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "OzzyRouter\\": "Src/",
+            "Http\\": "Src/"
+        }
+    }
+}
