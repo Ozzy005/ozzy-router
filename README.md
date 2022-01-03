@@ -2,19 +2,19 @@
 
 - Um simples roteador.
 
-### Desenvolvimento
+### **Desenvolvimento**
 
 - Ainda sem suporte a rotas dinâmicas , mas pretendo implementá-las em breve, entre vários outros recursos.
 
-### Ambiente Necessário
+### **Ambiente Necessário**
 
 - PHP (>= 8.1)
 
-### Uso
+### **Uso**
 
-#### Crie um arquivo .htaccess simples em seu diretório raiz se estiver usando o Apache com mod_rewrite habilitado.
+Crie um arquivo .htaccess simples em seu diretório raiz se estiver usando o Apache com mod_rewrite habilitado.
 
-#### Esta configuração vai redirecionar todas as solicitações para seu arquivo index.php.
+Esta configuração vai redirecionar todas as solicitações para seu arquivo index.php.
 
 ```apache
 <IfModule mod_rewrite.c>
@@ -30,7 +30,7 @@
 </IfModule>
 ```
 
-#### É possível chamar os métodos HTTP tanto em minúsculo quanto em maiúsculo;
+É possível chamar os métodos HTTP tanto em minúsculo quanto em maiúsculo;
 
 ```php
 Router::get();
@@ -39,7 +39,7 @@ Router::post();
 Router::POST();
 ```
 
-#### Exemplo de nomeação de rotas.
+Exemplo de nomeação de rotas.
 
 ```php
 require __DIR__.'/vendor/autoload.php';
@@ -61,9 +61,9 @@ try {
 }
 ```
 
-#### É possível adicionar um middleware a um grupo de rotas.
+É possível nomear um middleware a um grupo de rotas.
 
-#### Exemplo de middleware `(sempre deve ter o método estático handle)`.
+Exemplo de middleware `(sempre deve ter o método estático handle)`.
 
 ```php
 namespace Http\Middlewares;
@@ -80,7 +80,7 @@ class RedirectSeNaoEstiverLogado
 }
 ```
 
-#### Exemplo de nomeação de um middleware a um grupo de rotas.
+Exemplo de nomeação de um middleware a um grupo de rotas.
 
 ```php
 require __DIR__.'/vendor/autoload.php';
@@ -105,14 +105,14 @@ try {
 }
 ```
 
-### Licença
+### **Licença**
 
 - Este projeto está sob a licença (MIT) - veja o arquivo - [LICENSE.md](https://github.com/Ozzy005/ozzy-router/blob/main/LICENSE) para detalhes.
 
-### Autores
+### **Autores**
 
 - [Rafael Arend](https://github.com/Ozzy005)
 
-### Email
+### **Email**
 
 - rafinhaarend123@hotmail.com
