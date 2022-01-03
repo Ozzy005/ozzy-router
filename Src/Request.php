@@ -10,23 +10,23 @@ namespace Http;
 
 class Request
 {
-    private array $headers = [];
-    private array $data;
-    public readonly string $rewriteUri;
+    public readonly array $headers;
+    public readonly array $data;
+    public readonly string $rewritenUri;
 
     public function __construct()
     {
         $this->setHeaders();
-        $this->setRewriteUri();
+        $this->rewriteUri();
         $this->setData();
     }
 
     private function setHeaders(): void
     {
+        $headers = [];
         foreach ($_SERVER as $key => $value) {
             $explode = explode('_', $key);
             $keyFormated = '';
-
             foreach ($explode as $key => $chunk) {
                 if (!$key) {
                     $keyFormated = strtolower($chunk);
@@ -34,17 +34,18 @@ class Request
                     $keyFormated .= ucfirst(strtolower($chunk));
                 }
             }
-            $this->headers[$keyFormated] = $value;
+            $headers[$keyFormated] = $value;
         }
+        $this->headers = $headers;
     }
 
-    private function setRewriteUri(): void
+    private function rewriteUri(): void
     {
         $uri = $this->requestUri;
         if (false !== $pos = strpos($uri, '?')) {
             $uri = substr($uri, 0, $pos);
         }
-        $this->rewriteUri = rawurldecode($uri);
+        $this->rewritenUri = rawurldecode($uri);
     }
 
     private function setData(): void

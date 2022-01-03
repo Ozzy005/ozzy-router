@@ -72,10 +72,10 @@ class Router
     private static function parseRoutes(): void
     {
         $verb = strtoupper(self::$request->requestMethod);
-        $rewriteUri = self::$request->rewriteUri;
+        $rewritenUri = self::$request->rewritenUri;
 
         foreach (self::$routes[$verb] as $key => $value) {
-            if ($rewriteUri === $key) {
+            if ($rewritenUri === $key) {
                 if ($value['middleware']) {
                     $value['middleware']::handle();
                 }
@@ -86,7 +86,7 @@ class Router
         }
 
         if (!self::$action) {
-            throw new Exception("$verb route $rewriteUri not exist");
+            throw new Exception("$verb route $rewritenUri not exist");
         }
     }
 
