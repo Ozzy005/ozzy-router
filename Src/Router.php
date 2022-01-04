@@ -28,7 +28,6 @@ class Router
     {
         $route = $args[0];
         $action = $args[1];
-
         $addRoute = function ($route) use ($verb, $action) {
             self::$routes[$verb][$route] = [
                 'controller' => $action[0],
@@ -73,13 +72,12 @@ class Router
     {
         $verb = strtoupper(self::$request->requestMethod);
         $rewritenUri = self::$request->rewritenUri;
-
+        
         foreach (self::$routes[$verb] as $key => $value) {
             if ($rewritenUri === $key) {
                 if ($value['middleware']) {
                     $value['middleware']::handle();
                 }
-
                 self::$action = $value;
                 break;
             }
