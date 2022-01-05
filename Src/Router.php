@@ -16,7 +16,7 @@ class Router
     private static array $enabledVerbs = ['POST', 'GET', 'PUT', 'PATCH', 'DELETE'];
     private static array $routes = [];
     private static array $action = [];
-    private static string $middleware;
+    private static string $middleware = '';
     private static Request $request;
 
     public function __construct(Request $request)
